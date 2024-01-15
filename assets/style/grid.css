@@ -12,16 +12,110 @@
     grid-row: 2/4;
 }
 
+/* Eventos */
 
+.eventos__item{
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto repeat(2,1fr) auto;
+    grid-template-areas:
+    "imagem imagem"
+    "nome nome"
+    "data data"
+    "local botao";
+}
+
+.eventos__item img{
+    grid-area: imagem;
+}
+
+.eventos__item h3{
+    grid-area: nome;
+    align-self: center;
+}
+
+.eventos__item h4{
+    grid-area: data;
+}
+
+.eventos__item h5{
+    grid-area: local;
+    align-self: end;
+}
+
+.eventos__item button{
+    grid-area: botao;
+}
+
+/* Agenda */
+
+.agenda__item{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto 1fr;
+    grid-template-areas: 
+    "imagem imagem"
+    "data descricao";
+}
+
+.agenda__item img{
+    grid-area: imagem;
+}
+
+.agenda__item data{
+    grid-area: h3 h4 h5;
+}
+
+.agenda__item descricao{
+    grid-area: h6 button;
+}
 @media (min-width:720px) {
 
+    .banner{
+        grid-template-columns: 50% auto auto;
+        column-gap: 1.5rem;
+    }
+
     .banner img:nth-child(1){
-        grid-column: 1/3;
+        grid-column: 1/2;
         grid-row: 1/3;
     }
 
     .banner img:nth-child(4){
-        grid-column: 4/5;
+        grid-column: 3/4;
         grid-row: 1/3;
+    }
+}
+
+@media(min-width:1440px){
+
+    .categorias{
+        display: grid;
+        grid-template-columns: repeat(2,1fr) ;
+        grid-template-rows: repeat(2,1fr);
+        column-gap: 1.5rem;
+        grid-row: 1rem;
+        grid-template-areas:
+        "titulo titulo"
+        "categorias destaque "
+        "categorias imagem";
+    }
+
+    .categorias h2{
+        grid-area: titulo;
+        align-self:initial;
+    }
+
+    .categorias ul{
+        grid-area: categorias;
+    }
+
+    .categorias__destaque div{
+        grid-area: imagem;
+        align-self: end;
+    }
+
+    .categorias h3{
+        grid-area: destaque;
     }
 }
